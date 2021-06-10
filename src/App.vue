@@ -5,6 +5,7 @@
       <CodeEditor />
       <QueryResult />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -12,13 +13,18 @@
 import Header from './components/Header.vue';
 import CodeEditor from './components/CodeEditor.vue';
 import QueryResult from './components/QueryResult.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {};
+  },
   components: {
     Header,
     CodeEditor,
     QueryResult,
+    Footer,
   },
 };
 </script>

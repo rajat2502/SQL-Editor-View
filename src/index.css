@@ -2,8 +2,16 @@
 
 @tailwind components;
 
+button:focus {
+  outline: none;
+}
+
+.tab-heading {
+  height: 40px;
+}
+
 .CodeMirror {
-  height: 100%;
+  height: calc(100% - 40px);
 }
 
 .CodeMirror-gutter {
