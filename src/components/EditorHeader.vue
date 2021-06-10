@@ -4,9 +4,15 @@
   >
     <p>main.sql</p>
     <button
-      class="flex items-center bg-green-700 hover:bg-green-800 transition duration-200 ease-in-out py-1 px-4 font-bold rounded-sm"
+      :disabled="running"
+      class="run-btn flex items-center bg-green-700 hover:bg-green-800 transition duration-200 ease-in-out py-1 px-4 font-bold rounded-sm"
+      @click="$emit('runCode')"
     >
-      <Icon name="run" /> Run
+      <template v-if="!running"><Icon name="run" /> Run</template>
+      <template v-else
+        ><div id="loading"></div>
+        Running</template
+      >
     </button>
   </div>
 </template>
@@ -16,7 +22,10 @@ import Icon from './Icon.vue';
 
 export default {
   name: 'EditorHeader',
-  props: {},
+  props: {
+    running: Boolean,
+  },
+  emits: ['runCode'],
   components: { Icon },
 };
 </script>

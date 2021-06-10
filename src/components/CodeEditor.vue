@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <EditorHeader />
+    <EditorHeader :running="running" @runCode="runCode" />
     <textarea :value="code" id="editor"></textarea>
   </div>
 </template>
@@ -21,11 +21,6 @@ import EditorHeader from './EditorHeader.vue';
 
 export default {
   name: 'CodeEditor',
-  data() {
-    return {
-      dummyValue: 'SELECT * FROM MYTABLES;',
-    };
-  },
   mounted() {
     this._editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
       lineNumbers: true,
@@ -36,14 +31,19 @@ export default {
     });
 
     this._editor.on('changes', () => {
-      // this.code = this._editor.getValue();
       this.$emit('updateCode', this._editor.getValue());
     });
   },
+  methods: {
+    runCode() {
+      this.$emit('runSQLCode');
+    },
+  },
   props: {
     code: String,
+    running: Boolean,
   },
-  emits: ['updateCode'],
+  emits: ['updateCode', 'runSQLCode'],
   components: { EditorHeader },
 };
 </script>

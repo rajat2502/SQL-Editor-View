@@ -6,6 +6,33 @@ button:focus {
   outline: none;
 }
 
+.run-btn:disabled {
+  background: #24803d;
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.run-btn:disabled:hover {
+  background: #24803d;
+}
+
+#loading {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.75s linear infinite;
+  margin-right: 4px;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 .tab-heading {
   height: 40px;
 }
