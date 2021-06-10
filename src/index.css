@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+.CodeMirror {
+  height: 100%;
+}
+
+.CodeMirror-gutter {
+  background: #111320;
+}
+
+@tailwind utilities;
