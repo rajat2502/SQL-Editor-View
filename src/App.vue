@@ -10,7 +10,7 @@
       />
       <QueryResult :result="result" />
     </div>
-    <Footer />
+    <Footer @download="downloadFile" @save="saveCode" @reset="resetCode" />
   </div>
 </template>
 
@@ -29,11 +29,28 @@ export default {
       code: 'SELECT * FROM STUDENTS;',
       running: false,
       result: '',
+      fileName: '',
     };
   },
   methods: {
     updateCode(newValue) {
       this.code = newValue;
+    },
+    downloadFile() {
+      const link = document.createElement('a');
+      const mimeType = 'text/sql || text/plain';
+      link.setAttribute('download', 'main.sql');
+      link.setAttribute(
+        'href',
+        'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(this.code)
+      );
+      link.click();
+    },
+    saveCode() {
+      localStorage.setItem('code', this.code);
+    },
+    resetCode() {
+      localStorage.clear();
     },
     async runSQLCode() {
       this.running = true;
@@ -41,6 +58,10 @@ export default {
       this.result = data;
       this.running = false;
     },
+  },
+  created() {
+    const savedCode = localStorage.getItem('code');
+    if (savedCode) this.code = savedCode;
   },
   components: {
     Header,

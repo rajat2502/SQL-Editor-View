@@ -2,7 +2,14 @@
   <div
     class="flex items-center justify-between tab-heading text-xs text-white tracking-wider bg-coolGray-900 p-2"
   >
-    <p>main.sql</p>
+    <div class="flex">
+      <input
+        type="text"
+        class="w-auto cursor-pointer bg-coolGray-900"
+        title="Edit program name"
+        value="main.sql"
+      />
+    </div>
     <button
       :disabled="running"
       class="run-btn flex items-center bg-green-700 hover:bg-green-800 transition duration-200 ease-in-out py-1 px-4 font-bold rounded-sm"

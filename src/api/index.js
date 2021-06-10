@@ -19,7 +19,7 @@ const getSubmissionToken = async (body) => {
     const data = await axios.request(options);
     return data.data.token;
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 };
 
@@ -43,7 +43,7 @@ const getSubmissionDetails = async (token) => {
     const { data } = await axios.request(options);
     return data;
   } catch (err) {
-    console.log(err.response);
+    return err.response;
   }
 };
 
@@ -73,7 +73,11 @@ const getBody = (code) => {
  * @returns - the object will all submission details
  */
 export const runCode = async (code) => {
-  const token = await getSubmissionToken(getBody(code));
-  const data = await getSubmissionDetails(token);
-  return data.stdout;
+  try {
+    const token = await getSubmissionToken(getBody(code));
+    const data = await getSubmissionDetails(token);
+    return data.stdout;
+  } catch (err) {
+    return { error: err };
+  }
 };

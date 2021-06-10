@@ -2,7 +2,8 @@
 
 @tailwind components;
 
-button:focus {
+button:focus,
+input:focus {
   outline: none;
 }
 
@@ -43,6 +44,10 @@ button:focus {
 
 .CodeMirror-gutter {
   background: #111320;
+}
+
+.footer button {
+  height: 18px;
 }
 
 @tailwind utilities;
