@@ -2,7 +2,7 @@
   <div class="flex flex-col h-full">
     <Header />
     <div class="flex justify-between h-full">
-      <CodeEditor />
+      <CodeEditor :code="code" @updateCode="updateCode" />
       <QueryResult />
     </div>
     <Footer />
@@ -18,7 +18,15 @@ import Footer from './components/Footer.vue';
 export default {
   name: 'App',
   data() {
-    return {};
+    return {
+      code: 'SELECT * FROM MYTABLES;',
+    };
+  },
+  methods: {
+    updateCode(newValue) {
+      // console.log(newValue);
+      this.code = newValue;
+    },
   },
   components: {
     Header,

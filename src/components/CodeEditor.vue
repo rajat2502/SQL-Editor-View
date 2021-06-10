@@ -1,28 +1,13 @@
 <template>
   <div class="w-full">
-    <!-- Editor's Header -->
-    <div
-      class="flex items-center justify-between tab-heading text-xs text-white tracking-wider bg-coolGray-900 p-2"
-    >
-      <p>main.sql</p>
-      <button
-        class="flex items-center bg-green-700 hover:bg-green-800 transition duration-200 ease-in-out py-1 px-4 font-bold rounded-sm"
-      >
-        <Icon name="run" /> Run
-      </button>
-    </div>
-
-    <!-- CodeMirror's TextArea -->
-    <textarea v-model="code" id="editor"></textarea>
+    <EditorHeader />
+    <textarea :value="code" id="editor"></textarea>
   </div>
 </template>
 
 <script>
 import * as CodeMirror from 'codemirror';
 import 'codemirror/mode/sql/sql';
-
-// Icon component for using SVGs
-import Icon from './Icon.vue';
 
 import 'codemirror/lib/codemirror.css';
 
@@ -32,11 +17,13 @@ import 'codemirror/theme/material.css';
 import 'codemirror/theme/material-darker.css';
 import 'codemirror/theme/monokai.css';
 
+import EditorHeader from './EditorHeader.vue';
+
 export default {
   name: 'CodeEditor',
   data() {
     return {
-      code: 'select * as mytable;',
+      dummyValue: 'SELECT * FROM MYTABLES;',
     };
   },
   mounted() {
@@ -49,17 +36,15 @@ export default {
     });
 
     this._editor.on('changes', () => {
-      this.code = this._editor.getValue();
+      // this.code = this._editor.getValue();
+      this.$emit('updateCode', this._editor.getValue());
     });
   },
-  watch: {
-    code: {
-      handler(newVal) {
-        console.log(newVal);
-      },
-    },
+  props: {
+    code: String,
   },
-  components: { Icon },
+  emits: ['updateCode'],
+  components: { EditorHeader },
 };
 </script>
 
