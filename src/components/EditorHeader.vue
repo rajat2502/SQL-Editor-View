@@ -2,8 +2,14 @@
   <div
     class="text-xl flex items-center justify-between tab-heading text-white tracking-wider bg-coolGray-900 px-6 py-8"
   >
-    <div class="flex">
+    <div class="flex items-center">
       <h3>main.sql</h3>
+      <a
+        href="https://github.com/rajat2502/SQL-Editor-View/blob/main/sample.csv"
+        target="_blank"
+        class="text-sm m-4 underline"
+        >(Sample Data used)</a
+      >
     </div>
     <button
       :disabled="running"
