@@ -25,6 +25,7 @@ export default {
   props: {
     name: String,
   },
+  // Get the icon from the utils
   mounted() {
     this.currentSVG = getIcons().find((icon) => icon.name === this.name);
   },

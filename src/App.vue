@@ -43,6 +43,7 @@ export default {
     updateCode(newValue) {
       this.code = newValue;
     },
+    // Download main.sql file
     downloadFile() {
       const link = document.createElement('a');
       const mimeType = 'text/sql || text/plain';
@@ -53,6 +54,7 @@ export default {
       );
       link.click();
     },
+    // Copy code/result to clipboard
     copy(x) {
       let copyContent;
       if (x === 'code') copyContent = this.code;
@@ -66,13 +68,16 @@ export default {
         }
       );
     },
+    // save code to localStorage
     saveCode() {
       localStorage.setItem('code', this.code);
     },
+    // Clear localStorage and reload page
     resetCode() {
       localStorage.clear();
       location.reload();
     },
+    // Compile SQL code
     async runSQLCode() {
       this.running = true;
       this.error = '';
@@ -83,6 +88,7 @@ export default {
       this.running = false;
     },
   },
+  // Check if localstorage has some saved code
   created() {
     const savedCode = localStorage.getItem('code');
     if (savedCode) this.code = savedCode;

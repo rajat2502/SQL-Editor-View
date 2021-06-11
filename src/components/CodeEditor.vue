@@ -29,6 +29,7 @@ import EditorHeader from './EditorHeader.vue';
 
 export default {
   name: 'CodeEditor',
+  // codemirror configurations
   mounted() {
     this._editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
       lineNumbers: true,
@@ -53,6 +54,7 @@ export default {
     });
   },
   methods: {
+    // compile SQL code
     runCode() {
       this.$emit('runSQLCode');
     },

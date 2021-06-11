@@ -107,27 +107,33 @@ export default {
     };
   },
   methods: {
+    // copy code/result to the clipboard
     copy(type) {
       this.$emit('copy', type);
       this.modelOpen = true;
       this.modelType = 'copy';
     },
+    // close modal
     closeModel() {
       this.modelOpen = false;
     },
+    // Save program to local storage
     saveProgram() {
       this.$emit('save');
       this.modelOpen = true;
       this.modelType = 'save';
     },
+    // Show reset Modal
     resetProgram() {
       this.modelOpen = true;
       this.modelType = 'reset';
     },
+    // Show shortcut modal
     showShortcutModel() {
       this.modelOpen = true;
       this.modelType = 'shortcuts';
     },
+    // keyhandler for handling the shortcuts
     keyDownHandler(e) {
       const cmdKey = window.navigator.platform.match('Mac')
         ? e.metaKey
@@ -161,6 +167,7 @@ export default {
       }
     },
   },
+  // add eventlistener for the shortcuts on keydown
   mounted() {
     document.addEventListener('keydown', this.keyDownHandler);
   },

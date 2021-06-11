@@ -20,6 +20,9 @@
 export default {
   name: 'Model',
   emits: ['closeModel'],
+  /*
+    Add eventlistener to the modal to close it.
+  */
   mounted() {
     const closeModalEvent = (e) => {
       if (e.target === e.currentTarget) {
