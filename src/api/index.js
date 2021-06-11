@@ -53,16 +53,17 @@ const getBody = (code) => {
     source_code: `CREATE TABLE students (
         id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
-        gender TEXT NOT NULL
+        gender TEXT NOT NULL,
+        age INTEGER NOT NULL
       );
-      INSERT INTO students VALUES (1, 'Ryan', 'M');
-      INSERT INTO students VALUES (2, 'Joanna', 'F');
-      INSERT INTO students VALUES (3, 'Rebecca', 'F');
-      INSERT INTO students VALUES (4, 'Johm', 'M');
-      INSERT INTO students VALUES (5, 'Kamla', 'F');
-      INSERT INTO students VALUES (6, 'Rajat', 'M');
-      INSERT INTO students VALUES (7, 'Nihal', 'M');
-      INSERT INTO students VALUES (8, 'Rohit', 'M');
+      INSERT INTO students VALUES (1, 'Pranav', 'Male', 20);
+      INSERT INTO students VALUES (2, 'Prachi', 'Female', 21);
+      INSERT INTO students VALUES (3, 'Parul', 'Female', 19);
+      INSERT INTO students VALUES (4, 'Rohit', 'Male', 22);
+      INSERT INTO students VALUES (5, 'Kamla', 'Female', 20);
+      INSERT INTO students VALUES (6, 'Rajat', 'Male', 21);
+      INSERT INTO students VALUES (7, 'Nihal', 'Male', 22);
+      INSERT INTO students VALUES (8, 'Anshu', 'Male', 22);
       ${code}
       `,
   };

@@ -10,7 +10,7 @@
       <p class="text-xl" v-else-if="result === ''">
         Query results will appear here.
       </p>
-      <pre class="p-2 text-2xl" v-else>{{ result }}</pre>
+      <pre class="leading-loose	p-2 text-2xl" v-else>{{ result }}</pre>
     </div>
   </div>
 </template>
