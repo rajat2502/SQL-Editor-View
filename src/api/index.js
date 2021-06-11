@@ -3,6 +3,12 @@ import axios from 'axios';
 const key = process.env.VUE_APP_RAPID_API_KEY;
 const baseURL = process.env.VUE_APP_RAPID_API_URL;
 
+/**
+ *
+ * @param {object} body - a submission object that contains the code that is to be compiled
+ * @returns - submission token
+ */
+
 const getSubmissionToken = async (body) => {
   try {
     const options = {
@@ -47,6 +53,7 @@ const getSubmissionDetails = async (token) => {
   }
 };
 
+// Get submission body
 const getBody = (code) => {
   return {
     language_id: 82,
