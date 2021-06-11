@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full border-r-4 border-gray-900">
     <EditorHeader :running="running" @runCode="runCode" />
     <textarea :value="code" id="editor"></textarea>
   </div>
@@ -7,8 +7,16 @@
 
 <script>
 import * as CodeMirror from 'codemirror';
+
+// Language Mode
 import 'codemirror/mode/sql/sql';
 
+// Addon imports
+import 'codemirror/addon/comment/comment';
+import 'codemirror/addon/edit/matchbrackets';
+import 'codemirror/addon/edit/closebrackets';
+
+// CSS Imports
 import 'codemirror/lib/codemirror.css';
 
 // themes
@@ -28,6 +36,12 @@ export default {
       tabSize: 2,
       mode: 'sql',
       value: this.code,
+      matchBrackets: true,
+      autoCloseBrackets: true,
+      extraKeys: {
+        'Ctrl-/': 'toggleComment',
+        'Cmd-/': 'toggleComment',
+      },
     });
 
     this._editor.on('changes', () => {

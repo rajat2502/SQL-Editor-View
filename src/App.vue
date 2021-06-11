@@ -29,7 +29,6 @@ export default {
       code: 'SELECT * FROM STUDENTS;',
       running: false,
       result: '',
-      fileName: '',
     };
   },
   methods: {

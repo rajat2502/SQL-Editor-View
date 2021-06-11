@@ -34,23 +34,23 @@
       </div>
     </Model>
   </teleport>
-  <div class="footer p-1 bg-gray-900 text-xs text-white">
+  <div class="z-10 footer p-3 bg-gray-900 text-white" style="height: 54px;">
     <div class="flex">
       <button
         @click="saveProgram"
-        class="inline-flex p-0 border border-white rounded-sm mr-2 px-1 items-center"
+        class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
       >
         <Icon name="save" /> &nbsp;Save
       </button>
       <button
         @click="$emit('download')"
-        class="inline-flex p-0 border border-white rounded-sm mr-2 px-1 items-center"
+        class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
       >
         <Icon name="download" /> &nbsp;Download
       </button>
       <button
         @click="resetProgram"
-        class="inline-flex p-0 border border-white rounded-sm mr-2 px-1 items-center"
+        class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
       >
         <Icon name="reset" /> &nbsp;Reset
       </button>

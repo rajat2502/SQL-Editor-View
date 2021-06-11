@@ -2,12 +2,14 @@
   <div
     class="border-l-8 border-gray-900 result text-center text-white bg-gray-800"
   >
-    <p class="tracking-wider uppercase bg-trueGray-900 p-2">Query Result</p>
+    <p class="font-bold text-2xl tracking-wider uppercase bg-trueGray-900 p-4">
+      Query Result
+    </p>
     <div class="flex justify-center p-4 flex-grow">
-      <p v-if="result === ''" class="text-xs">
+      <p class="text-xl" v-if="result === ''">
         Query results will appear here.
       </p>
-      <pre class="p-2" v-else>{{ result }}</pre>
+      <pre class="p-2 text-2xl" v-else>{{ result }}</pre>
     </div>
   </div>
 </template>
@@ -23,6 +25,6 @@ export default {
 
 <style scoped>
 .result {
-  width: 400px;
+  width: 600px;
 }
 </style>
