@@ -3,20 +3,22 @@
     <Model @closeModel="closeModel">
       <!-- Save Modal -->
       <div v-if="modelType === 'save'">
-        <h1 class="font-bold my-1 px-6 py-2">Program Saved!</h1>
+        <h1 class="text-3xl font-medium my-1 px-6 py-4">Program Saved!</h1>
         <hr />
-        <p class="text-sm px-6 py-4">The program has been saved :)</p>
+        <p class="text-2xl p-6">The program has been saved :)</p>
       </div>
       <!-- Reset Model -->
       <div v-else>
-        <h1 class="font-bold my-1 px-6 py-2">Reset Program?</h1>
+        <h1 class="text-3xl font-medium my-1 px-6 py-4">Reset Program?</h1>
         <hr />
-        <p class="text-sm px-6 pt-4">This action will reset the program!</p>
-        <div class="flex justify-between text-xs px-6 py-2">
+        <p class="text-2xl px-6 pt-6 pb-2">
+          This action will reset the program!
+        </p>
+        <div class="flex justify-between text-xl px-6 pt-2 pb-4">
           <button
             title="Cancel"
             @click="closeModel"
-            class="bg-coolGray-600 rounded px-2 py-1"
+            class="bg-coolGray-600 rounded px-4 py-2"
           >
             Cancel
           </button>
@@ -26,7 +28,7 @@
               $emit('reset');
               modelOpen = false;
             "
-            class="bg-red-600 rounded px-2 py-1"
+            class="bg-red-600 rounded px-4 py-2"
           >
             Reset
           </button>
