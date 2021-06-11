@@ -3,7 +3,7 @@
     class="text-xl flex items-center justify-between tab-heading text-white tracking-wider bg-coolGray-900 px-6 py-8"
   >
     <div class="flex">
-      <p>main.sql</p>
+      <h3>main.sql</h3>
     </div>
     <button
       :disabled="running"

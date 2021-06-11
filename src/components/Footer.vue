@@ -5,13 +5,13 @@
       <div v-if="modelType === 'save'">
         <h1 class="text-3xl font-medium my-1 px-6 py-4">Program Saved!</h1>
         <hr />
-        <p class="text-2xl p-6">The program has been saved :)</p>
+        <h3 class="text-2xl p-6">The program has been saved :)</h3>
       </div>
       <!-- Copy Model -->
       <div v-else-if="modelType === 'copy'">
         <h1 class="text-3xl font-medium my-1 px-6 py-4">Content Copied!</h1>
         <hr />
-        <p class="text-2xl p-6">Copying to clipboard was successful :)</p>
+        <h3 class="text-2xl p-6">Copying to clipboard was successful :)</h3>
       </div>
       <!-- Shortcut Model -->
       <div v-else-if="modelType === 'shortcuts'">
@@ -21,9 +21,9 @@
       <div v-else>
         <h1 class="text-3xl font-medium my-1 px-6 py-4">Reset Program?</h1>
         <hr />
-        <p class="text-2xl px-6 pt-6 pb-2">
+        <h3 class="text-2xl px-6 pt-6 pb-2">
           This action will reset the program!
-        </p>
+        </h3>
         <div class="flex justify-between text-xl px-6 pt-2 pb-4">
           <button
             title="Cancel"
@@ -135,9 +135,17 @@ export default {
       const modalsLength = document.querySelectorAll('.modal').length;
       if (cmdKey && !modalsLength && !e.shiftKey) {
         switch (e.keyCode) {
+          case 66:
+            e.preventDefault();
+            this.copy('code');
+            break;
           case 72:
             e.preventDefault();
             this.$emit('download');
+            break;
+          case 75:
+            e.preventDefault();
+            this.showShortcutModel();
             break;
           case 82:
             e.preventDefault();
@@ -163,5 +171,3 @@ export default {
   components: { Model, Icon, Shortcut },
 };
 </script>
-
-<style scoped></style>
