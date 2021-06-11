@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full border-r-4 border-gray-900">
+  <div
+    class="w-full border-r-4 border-gray-900"
+    style="height: calc(100vh - 122px);"
+  >
     <EditorHeader :running="running" @runCode="runCode" />
     <textarea :value="code" id="editor"></textarea>
   </div>
@@ -36,6 +39,8 @@ export default {
       tabSize: 2,
       mode: 'sql',
       value: this.code,
+      scrollbarStyle: 'null',
+      lineWrapping: true,
       matchBrackets: true,
       autoCloseBrackets: true,
       extraKeys: {

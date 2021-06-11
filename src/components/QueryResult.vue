@@ -5,7 +5,7 @@
     <p class="font-bold text-2xl tracking-wider uppercase bg-trueGray-900 p-4">
       Query Result
     </p>
-    <div class="flex justify-center p-4 flex-grow">
+    <div class="flex justify-center p-4 flex-grow result-panel">
       <p class="text-xl" v-if="result === ''">
         Query results will appear here.
       </p>

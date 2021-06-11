@@ -10,7 +10,13 @@
       />
       <QueryResult :result="result" />
     </div>
-    <Footer @download="downloadFile" @save="saveCode" @reset="resetCode" />
+    <Footer
+      :result="result"
+      @copy="copy"
+      @download="downloadFile"
+      @save="saveCode"
+      @reset="resetCode"
+    />
   </div>
 </template>
 
@@ -44,6 +50,19 @@ export default {
         'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(this.code)
       );
       link.click();
+    },
+    copy(x) {
+      let copyContent;
+      if (x === 'code') copyContent = this.code;
+      else copyContent = this.result;
+      navigator.clipboard.writeText(copyContent).then(
+        () => {
+          console.log('Async: Copying to clipboard was successful!');
+        },
+        (err) => {
+          console.error('Async: Could not copy text: ', err);
+        }
+      );
     },
     saveCode() {
       localStorage.setItem('code', this.code);

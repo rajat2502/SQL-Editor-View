@@ -7,6 +7,12 @@
         <hr />
         <p class="text-2xl p-6">The program has been saved :)</p>
       </div>
+      <!-- Copy Model -->
+      <div v-else-if="modelType === 'copy'">
+        <h1 class="text-3xl font-medium my-1 px-6 py-4">Content Copied!</h1>
+        <hr />
+        <p class="text-2xl p-6">Copying to clipboard was successful :)</p>
+      </div>
       <!-- Reset Model -->
       <div v-else>
         <h1 class="text-3xl font-medium my-1 px-6 py-4">Reset Program?</h1>
@@ -36,8 +42,17 @@
       </div>
     </Model>
   </teleport>
-  <div class="z-10 footer p-3 bg-gray-900 text-white" style="height: 54px;">
+  <div
+    class="flex justify-between footer p-3 bg-gray-900 text-white"
+    style="height: 54px;"
+  >
     <div class="flex">
+      <button
+        @click="copy('code')"
+        class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
+      >
+        <Icon name="copy" /> &nbsp;Copy Code
+      </button>
       <button
         @click="saveProgram"
         class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
@@ -57,7 +72,14 @@
         <Icon name="reset" /> &nbsp;Reset
       </button>
     </div>
-    <!-- <div></div> -->
+    <div v-if="result">
+      <button
+        @click="copy('result')"
+        class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
+      >
+        <Icon name="save" /> &nbsp;Copy Result
+      </button>
+    </div>
   </div>
 </template>
 
@@ -74,6 +96,11 @@ export default {
     };
   },
   methods: {
+    copy(type) {
+      this.$emit('copy', type);
+      this.modelOpen = true;
+      this.modelType = 'copy';
+    },
     closeModel() {
       this.modelOpen = false;
     },
@@ -87,7 +114,10 @@ export default {
       this.modelType = 'reset';
     },
   },
-  emits: ['download', 'save', 'reset'],
+  props: {
+    result: String,
+  },
+  emits: ['copy', 'download', 'save', 'reset'],
   components: { Model, Icon },
 };
 </script>
