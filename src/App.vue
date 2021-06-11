@@ -51,6 +51,7 @@ export default {
     },
     resetCode() {
       localStorage.clear();
+      location.reload();
     },
     async runSQLCode() {
       this.running = true;
