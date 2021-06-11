@@ -24,9 +24,6 @@ import 'codemirror/lib/codemirror.css';
 
 // themes
 import 'codemirror/theme/dracula.css';
-import 'codemirror/theme/material.css';
-import 'codemirror/theme/material-darker.css';
-import 'codemirror/theme/monokai.css';
 
 import EditorHeader from './EditorHeader.vue';
 
@@ -48,6 +45,8 @@ export default {
         'Cmd-/': 'toggleComment',
       },
     });
+
+    this._editor.focus();
 
     this._editor.on('changes', () => {
       this.$emit('updateCode', this._editor.getValue());

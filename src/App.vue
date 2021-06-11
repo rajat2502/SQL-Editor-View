@@ -5,10 +5,11 @@
       <CodeEditor
         :code="code"
         :running="running"
+        @saveCode="saveCode"
         @updateCode="updateCode"
         @runSQLCode="runSQLCode"
       />
-      <QueryResult :result="result" />
+      <QueryResult :error="error" :result="result" />
     </div>
     <Footer
       :result="result"
@@ -35,6 +36,7 @@ export default {
       code: 'SELECT * FROM STUDENTS;',
       running: false,
       result: '',
+      error: '',
     };
   },
   methods: {
@@ -73,8 +75,11 @@ export default {
     },
     async runSQLCode() {
       this.running = true;
+      this.error = '';
+      this.result = '';
       const data = await runCode(this.code);
-      this.result = data;
+      if (data.stderr) this.error = data.stderr;
+      else this.result = data.stdout;
       this.running = false;
     },
   },

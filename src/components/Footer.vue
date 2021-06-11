@@ -13,6 +13,10 @@
         <hr />
         <p class="text-2xl p-6">Copying to clipboard was successful :)</p>
       </div>
+      <!-- Shortcut Model -->
+      <div v-else-if="modelType === 'shortcuts'">
+        <Shortcut />
+      </div>
       <!-- Reset Model -->
       <div v-else>
         <h1 class="text-3xl font-medium my-1 px-6 py-4">Reset Program?</h1>
@@ -71,6 +75,12 @@
       >
         <Icon name="reset" /> &nbsp;Reset
       </button>
+      <button
+        @click="showShortcutModel"
+        class="inline-flex p-0 border border-white rounded-sm mr-4 px-2 items-center"
+      >
+        <Icon name="shortcut" /> &nbsp;Shortcuts
+      </button>
     </div>
     <div v-if="result">
       <button
@@ -86,6 +96,7 @@
 <script>
 import Model from './Model.vue';
 import Icon from './Icon.vue';
+import Shortcut from './Shortcut.vue';
 
 export default {
   name: 'Footer',
@@ -113,12 +124,43 @@ export default {
       this.modelOpen = true;
       this.modelType = 'reset';
     },
+    showShortcutModel() {
+      this.modelOpen = true;
+      this.modelType = 'shortcuts';
+    },
+    keyDownHandler(e) {
+      const cmdKey = window.navigator.platform.match('Mac')
+        ? e.metaKey
+        : e.ctrlKey;
+      const modalsLength = document.querySelectorAll('.modal').length;
+      if (cmdKey && !modalsLength && !e.shiftKey) {
+        switch (e.keyCode) {
+          case 72:
+            e.preventDefault();
+            this.$emit('download');
+            break;
+          case 82:
+            e.preventDefault();
+            this.resetProgram();
+            break;
+          case 83:
+            e.preventDefault();
+            this.saveProgram();
+            break;
+          default:
+            return;
+        }
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener('keydown', this.keyDownHandler);
   },
   props: {
     result: String,
   },
   emits: ['copy', 'download', 'save', 'reset'],
-  components: { Model, Icon },
+  components: { Model, Icon, Shortcut },
 };
 </script>
 

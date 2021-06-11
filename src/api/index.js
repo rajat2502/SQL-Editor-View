@@ -76,7 +76,8 @@ export const runCode = async (code) => {
   try {
     const token = await getSubmissionToken(getBody(code));
     const data = await getSubmissionDetails(token);
-    return data.stdout;
+    console.log(data);
+    return data;
   } catch (err) {
     return { error: err };
   }

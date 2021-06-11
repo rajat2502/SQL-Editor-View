@@ -6,7 +6,8 @@
       Query Result
     </p>
     <div class="flex justify-center p-4 flex-grow result-panel">
-      <p class="text-xl" v-if="result === ''">
+      <p class="text-xl text-red-600 font-bold" v-if="error">{{ error }}</p>
+      <p class="text-xl" v-else-if="result === ''">
         Query results will appear here.
       </p>
       <pre class="p-2 text-2xl" v-else>{{ result }}</pre>
@@ -18,6 +19,7 @@
 export default {
   name: 'QueryResult',
   props: {
+    error: String,
     result: String,
   },
 };
