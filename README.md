@@ -30,10 +30,9 @@ SQL EDITOR VIEW is an application that allows users to simply execute SQL querie
     - Rewritten reusable code and avoided any blocking code.
  - After performing the above optimizations the page load time reduced to a great extent. Now, the load time on Desktop is around **0.7s** and on mobile it is around **2.2s**.
 
-<div align="center">
-<img width="450" height="300" src="https://user-images.githubusercontent.com/42200276/121773875-7b5d9780-cb9c-11eb-83b5-9fc1edbb02e1.png" />
-<img width="420" height="300" src="https://user-images.githubusercontent.com/42200276/121773917-c5467d80-cb9c-11eb-9379-9b1b6783d82c.png" />
-</div>
+Performance on Desktop             |  Performance on Mobile
+:-------------------------:|:-------------------------:
+![Performance on Desktop](https://user-images.githubusercontent.com/42200276/121773875-7b5d9780-cb9c-11eb-83b5-9fc1edbb02e1.png)  |  ![Performance on Mobile](https://user-images.githubusercontent.com/42200276/121773917-c5467d80-cb9c-11eb-9379-9b1b6783d82c.png)
 
 - The above image shows the Lighthouse results on the application, the first one is for Desktop while the second is the performance on Mobile phones.
 
@@ -66,11 +65,10 @@ $ yarn serve
 ## Screenshots
 
 ![Screenshot from 2021-06-12 15-36-35](https://user-images.githubusercontent.com/42200276/121774042-ac8a9780-cb9d-11eb-9e55-47157e0e0f58.png)
-<div align="center">
-<img src="https://user-images.githubusercontent.com/42200276/121774045-b3b1a580-cb9d-11eb-8bf3-bf1ebe274853.png" />
-<img src="https://user-images.githubusercontent.com/42200276/121774105-3b97af80-cb9e-11eb-88ce-a1046a37f087.png" />
-</div>
 
+Mobile View 1             |  Mobile View 2
+:-------------------------:|:-------------------------:
+![Performance on Desktop](https://user-images.githubusercontent.com/42200276/121774045-b3b1a580-cb9d-11eb-8bf3-bf1ebe274853.png)  |  ![Performance on Mobile](https://user-images.githubusercontent.com/42200276/121774105-3b97af80-cb9e-11eb-88ce-a1046a37f087.png)
 
 
 
