@@ -47,7 +47,7 @@
     </Model>
   </teleport>
   <div
-    class="flex justify-between footer p-3 bg-gray-900 text-white"
+    class="hidden sm:flex justify-between  footer p-3 bg-gray-900 text-white"
     style="height: 54px;"
   >
     <div class="flex">

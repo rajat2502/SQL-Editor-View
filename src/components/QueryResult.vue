@@ -24,9 +24,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.result {
-  width: 600px;
-}
-</style>

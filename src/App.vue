@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-full">
     <Header />
-    <div class="flex justify-between h-full">
+    <div class="flex justify-between flex-wrap sm:flex-nowrap h-full">
       <CodeEditor
         :code="code"
         :running="running"

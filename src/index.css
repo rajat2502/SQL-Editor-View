@@ -2,6 +2,15 @@
 
 @tailwind components;
 
+@font-face {
+  font-family: proximaNova;
+  src: url('./assets/ProximaNovaRegular.ttf');
+}
+
+body {
+  font-family: proximaNova, sans-serif;
+}
+
 button:focus,
 input:focus {
   outline: none;
@@ -51,6 +60,16 @@ input:focus {
 
 .CodeMirror-gutter {
   background: #111320;
+}
+
+.result {
+  width: 100%;
+}
+
+@media only screen and (min-width: 640px) {
+  .result {
+    width: 600px;
+  }
 }
 
 .result-panel {
