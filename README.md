@@ -1,24 +1,12 @@
-# sql-editor-view
+# SQL EDITOR VIEW
 
-## Project setup
-```
-yarn install
-```
+SQL EDITOR VIEW is an application that allows users to simply execute SQL queries on a sample database or design their own tables and receive instant results.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+#### See Hosted Version [here](https://sql-editor-view.netlify.app/)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Features
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- SQL queries may be executed instantaneously in the editor, which includes features such as **syntax highlighting**, **bracket matching**, and **automatic bracket closure**.
+- **Download**, **Copy**, and **Save** the program to localstorage
+- Copy the query result to clipboard
+- Use the features easily by utilising simple **keyboard shortcuts** such as **Ctrl - H** for download.
