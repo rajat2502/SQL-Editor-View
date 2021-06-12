@@ -5,6 +5,7 @@
 @font-face {
   font-family: proximaNova;
   src: url('./assets/ProximaNovaRegular.ttf');
+  font-display: swap;
 }
 
 body {
