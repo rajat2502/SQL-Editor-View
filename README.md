@@ -1,4 +1,4 @@
-# SQL EDITOR VIEW
+<h1 align="center">SQL EDITOR VIEW</h1>
 
 SQL EDITOR VIEW is an application that allows users to simply execute SQL queries on a sample database or design their tables and receive instant results. Anyone can use it to run SQL queries directly from their browsers without having to install anything. It comes with several features designed to make the experience as seamless and efficient as possible.
 
